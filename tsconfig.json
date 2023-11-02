@@ -21,7 +21,14 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@softech/shared-component" :["src/app/shared/components"],
+      "@softech/shared-interfaces" :["src/app/shared/interfaces"],
+      "@softech/apis" :["src/app/core/apis"],
+      "@softech/guards" :["src/app/core/guards"],
+      "@softech/services" :["src/app/core/services"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
