@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { UserApiService } from '@softech/apis';
+import { User } from '@softech/shared-interfaces';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-
+  users$: Observable<User[]> | undefined
+  userService = inject(UserApiService);
   constructor() { }
 
   ngOnInit(): void {
+    this.getUsers()
+  }
+
+  getUsers(){
+    this.users$ =  this.userService.getAllUsers().pipe(
+      tap((users=>console.log(users)))
+    )
   }
 
 }
