@@ -1,3 +1,32 @@
-<ng-container *ngIf="users$ | async"></ng-container>
-
-<p>user works!</p>
+<section class="container mt-2">
+ 
+    <table
+      class="table table-striped-columns  table-borderless table-hover table-responsive caption-top shadow p-3 mb-5 bg-body rounded"
+    >
+      <caption>
+        List of users
+      </caption>
+      <thead class="table-primary">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Address</th>
+          <th scope="col">RegisterDate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users$ | async as UsersData; let i = index">
+          <td>{{ user.Name }}</td>
+          <td>{{ user.Email }}</td>
+          <td>{{ user.Phone }}</td>
+          <td>
+            >
+            {{ user.Address }}
+          </td>
+          <td>{{ user.RegisterDate | date : "dd/MM/yyyy" }}</td>
+        </tr>
+      </tbody>
+    </table>
+ 
+</section>
