@@ -27,6 +27,7 @@
       "@softech/shared-interfaces" :["src/app/shared/interfaces"],
       "@softech/apis" :["src/app/core/apis"],
       "@softech/guards" :["src/app/core/guards"],
+      "@softech/resolvers" :["src/app/core/resolvers"],
       "@softech/services" :["src/app/core/services"],
       "@softech/pipes" :["src/app/shared/pipes"]
     }

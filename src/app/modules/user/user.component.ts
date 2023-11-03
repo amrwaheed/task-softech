@@ -22,5 +22,7 @@ export class UserComponent implements OnInit {
       tap((users=>console.log(users)))
     )
   }
-
+  trackBy(index:number){
+    return index;
+  }
 }

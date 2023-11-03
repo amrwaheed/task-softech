@@ -1,2 +1,48 @@
-<p>order works!</p>
-<ng-container *ngIf="orders$ | async "></ng-container>
+<ng-container *ngIf="orders$ | async">
+  <div class="content">
+    <div class="container">
+      <h2 class="my-4">All Orders</h2>
+      <div class="table-responsive custom-table-responsive">
+        <table class="table custom-table">
+          <thead>
+            <tr>
+              <th scope="col">Order</th>
+              <th scope="col">Name</th>
+              <th scope="col">Order Date</th>
+              <th scope="col">Payment Method</th>
+              <th scope="col">Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let item of ordersList; let i = index">
+              <tr class="tr" scope="row" (click)="orderDetails(item)" *ngIf="item.UserId | getUserName:users">
+                <td>{{ item.OrderId }}</td>
+                <td>{{ item.UserId | getUserName:users }}</td>
+                <td>
+                  {{ item.OrderDate | date :'dd/MM/yyyy'}}
+                </td>
+                <td>
+                  <span
+                    class="badge"
+                    [ngClass]="
+                      item.PaymentType == 'online' ||
+                      item.PaymentType == 'Online'
+                        ? 'bg-success'
+                        : 'bg-danger'
+                    "
+                  >
+                    {{ item.PaymentType }}</span
+                  >
+                </td>
+                <td>{{item.Products | calculateTotalPrice: products | currency:'EGP'}}</td>
+              </tr>
+              <tr class="spacer">
+                <td colspan="100"></td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
