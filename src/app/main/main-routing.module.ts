@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'; 
 import { MainComponent } from './main.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { GetAllDataResolver } from '@softech/resolvers';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       {
         path: 'orders',
         loadChildren: () => import('../modules').then((m) => m.OrderModule),
+        resolve:{allData: GetAllDataResolver}
       },
     ],
   },
