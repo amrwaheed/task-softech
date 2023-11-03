@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Product, ProductQ } from '@softech/shared-interfaces';
 
 @Pipe({
-  name: 'calculateTotalPrice',
+  name: 'calculateTotalPriceOfProduct',
 })
-export class CalculateTotalPricePipe implements PipeTransform {
+export class CalculateTotalPriceOfProductPipe implements PipeTransform {
   transform(value: ProductQ[], products: Product[]): string {
     let totalPrice = 0;
     let partialProducts = value.map((elm) => {

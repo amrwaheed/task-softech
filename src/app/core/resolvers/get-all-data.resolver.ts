@@ -16,7 +16,7 @@ export class GetAllDataResolver implements Resolve<[Product[], Order[], User[]]>
   private orderService = inject(OrderApiService);
   private productService = inject(ProductApiService);
   private userService = inject(UserApiService);
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<[Product[], Order[], User[]]> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<[Product[], Order[], User[]]> {   
     return forkJoin([
       this.productService.getAllProducts(),
       this.orderService.getAllOrders(),

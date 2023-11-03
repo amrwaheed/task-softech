@@ -27,7 +27,6 @@ export class OrderComponent implements OnInit {
 
   getOrders() {
     this.orders$ = this.activeRoute.data.pipe(
-      tap((e) => console.log('aaaaaa', e)),
       map((e: Data) => e['allData']),
       map((value: [Product[], Order[], User[]]) => {
         this.products = value[TypeProp.Product];

@@ -2,12 +2,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { User } from '@softech/shared-interfaces';
 
 @Pipe({
-  name: 'getUserName'
+  name: 'getUser'
 })
 export class GetUserNamePipe implements PipeTransform {
 
-  transform(id: string, users: User[]): unknown {
-    return users.find(user=>user.Id == id)?.Name;
+  transform(id: string, users: User[]): User | undefined {
+    return users.find(user=>user.Id == id);
   }
 
 }

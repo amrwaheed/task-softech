@@ -19,9 +19,7 @@ export class ProductComponent implements OnInit {
   }
 
   getProducts(){
-    this.products$ =  this.productService.getAllProducts().pipe(
-      tap((products=>console.log(products)))
-    )
+    this.products$ =  this.productService.getAllProducts();
   }
 
 

@@ -18,11 +18,7 @@ export class UserComponent implements OnInit {
   }
 
   getUsers(){
-    this.users$ =  this.userService.getAllUsers().pipe(
-      tap((users=>console.log(users)))
-    )
+    this.users$ =  this.userService.getAllUsers();
   }
-  trackBy(index:number){
-    return index;
-  }
+ 
 }

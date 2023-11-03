@@ -15,9 +15,9 @@
           </thead>
           <tbody>
             <ng-container *ngFor="let item of ordersList; let i = index">
-              <tr class="tr" scope="row" (click)="orderDetails(item)" *ngIf="item.UserId | getUserName:users">
+              <tr class="tr" scope="row" (click)="orderDetails(item)" *ngIf="(item.UserId | getUser:users) as User">
                 <td>{{ item.OrderId }}</td>
-                <td>{{ item.UserId | getUserName:users }}</td>
+                <td>{{ User.Name}}</td>
                 <td>
                   {{ item.OrderDate | date :'dd/MM/yyyy'}}
                 </td>
@@ -34,9 +34,9 @@
                     {{ item.PaymentType }}</span
                   >
                 </td>
-                <td>{{item.Products | calculateTotalPrice: products | currency:'EGP'}}</td>
+                <td>{{item.Products | calculateTotalPriceOfProduct: products | currency:'EGP'}}</td>
               </tr>
-              <tr class="spacer">
+              <tr class="spacer" *ngIf="ordersList.length -1 != i">
                 <td colspan="100"></td>
               </tr>
             </ng-container>

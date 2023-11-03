@@ -5,7 +5,7 @@ import { OrderRoutingModule } from './order-routing.module';
 import { OrderComponent } from './order.component';
 import { SharedModule } from 'src/app/shared';
 import { OrderDetailsComponent } from './order-details/order-details.component';
-import { CalculateTotalPricePipe, GetUserNamePipe } from '@softech/pipes';
+import { CalculateTotalPriceOfProductPipe, GetUserNamePipe, GetTotalPriceAllProductsPipe } from '@softech/pipes';
  
 
 @NgModule({
@@ -13,7 +13,8 @@ import { CalculateTotalPricePipe, GetUserNamePipe } from '@softech/pipes';
     OrderComponent,
     OrderDetailsComponent,
     GetUserNamePipe,
-    CalculateTotalPricePipe
+    CalculateTotalPriceOfProductPipe,
+    GetTotalPriceAllProductsPipe
   ],
   imports: [
     CommonModule,
