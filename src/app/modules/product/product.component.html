@@ -1,10 +1,10 @@
-<ng-container *ngIf=""></ng-container>
+<ng-container *ngIf="products$ | async"></ng-container>
 
 <section class="container-fluid mt-4">
   <div class="row">
     <div
       class="col-sm-12 col-md-4 col-lg-3 my-2"
-      *ngFor="let product of products$ | async; let i = index"
+      *ngFor="let product of productsList; let i = index"
     >
       <div class="card"  [ngStyle]="{'cursor': product.AvailablePieces == 0? 'not-allowed':'pointer'}">
         <img
@@ -25,6 +25,8 @@
                 'text-bg-danger': product.AvailablePieces == 0,
                 'text-bg-success': product.AvailablePieces > 10
               }"
+              data-bs-toggle="modal" data-bs-target="#editQuantity"
+              (click)="selectProduct(i)"
             >
               <span>Available Pieces: </span>
               <span>{{ product.AvailablePieces }}</span>
@@ -35,3 +37,27 @@
     </div>
   </div>
 </section>
+<!-- Button trigger modal -->
+ 
+
+<!-- Modal -->
+<div class="modal fade" id="editQuantity" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Available Pieces</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Enter New Quantity</label>
+          <input type="number" inputmode="numeric" [formControl]="productForm"  class="form-control" id="quantity" placeholder="3">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"  (click)="submit($event)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
