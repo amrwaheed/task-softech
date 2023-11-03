@@ -1,5 +1,33 @@
-<section class="container mt-2">
-  <table
+<section class="container mt-2 shadow-lg p-3 mb-5 bg-body rounded">
+ 
+    <h2 class="my-4">All Users</h2>
+    <div class="table-responsive custom-table-responsive">
+      <table class="table custom-table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">RegisterDate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users$ | async as UsersData; let i = index">
+            <td>{{ user.Name }}</td>
+            <td>{{ user.Email }}</td>
+            <td>{{ user.Phone }}</td>
+            <td>
+              >
+              {{ user.Address }}
+            </td>
+            <td>{{ user.RegisterDate | date : "dd/MM/yyyy" }}</td>
+          </tr> 
+        </tbody>
+      </table>
+    </div>
+ 
+  <!-- <table
     class="table table-striped-columns table-borderless table-hover table-responsive caption-top shadow p-3 mb-5 bg-body rounded"
   >
     <caption>
@@ -26,5 +54,5 @@
         <td>{{ user.RegisterDate | date : "dd/MM/yyyy" }}</td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
 </section>

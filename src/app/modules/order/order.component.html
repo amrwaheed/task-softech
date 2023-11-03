@@ -1,6 +1,6 @@
 <ng-container *ngIf="orders$ | async">
-  <div class="content">
-    <div class="container">
+ 
+    <div class="container shadow-lg p-3 mb-5 bg-body rounded">
       <h2 class="my-4">All Orders</h2>
       <div class="table-responsive custom-table-responsive">
         <table class="table custom-table">
@@ -15,7 +15,7 @@
           </thead>
           <tbody>
             <ng-container *ngFor="let item of ordersList; let i = index">
-              <tr class="tr" scope="row" (click)="orderDetails(item)" *ngIf="(item.UserId | getUser:users) as User">
+              <tr scope="row" (click)="orderDetails(item)" *ngIf="(item.UserId | getUser:users) as User">
                 <td>{{ item.OrderId }}</td>
                 <td>{{ User.Name}}</td>
                 <td>
@@ -44,5 +44,5 @@
         </table>
       </div>
     </div>
-  </div>
+   
 </ng-container>
