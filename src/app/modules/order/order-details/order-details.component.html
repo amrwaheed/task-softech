@@ -2,8 +2,8 @@
 <ng-container *ngIf="order$ |async as Order">
 
   <div class="container-fluid py-lg-3 px-lg-5 py-sm-2">
-    <h3 class=" ">Order #{{Order.OrderId}}     
-      <span class="badge" 
+    <h3 class=" ">Order #{{Order.OrderId}}
+      <span class="badge"
       class="badge"
       [ngClass]="
         Order.PaymentType == 'online' ||
@@ -18,7 +18,7 @@
     <div class="row my-3">
       <div class="col-lg-3 col-md-12 col-sm-12">
         <div class="card text-center shadow border-0 shadow-lg p-3 mb-5 bg-body rounded">
-          <ng-container *ngIf="(Order.UserId | getUser: users) as User">  
+          <ng-container *ngIf="(Order.UserId | getUser: users) as User">
             <div class="card-body">
               <div class="d-flex justify-content-center">
                 <img
@@ -40,7 +40,7 @@
                   <span class="text-secondary">{{User.Phone}}</span>
                 </li>
                 <li
-                  class="list-group-item d-flex justify-content-between align-items-center"
+                  class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                 >
                   <h6 class="mb-0">Email</h6>
                   <span class="text-secondary">{{User.Email}}</span>
@@ -48,7 +48,7 @@
               </ul>
             </div>
           </ng-container>
-          
+
         </div>
       </div>
       <div class="col-lg-9 col-md-12 col-sm-12">
@@ -78,7 +78,7 @@
                   <td>{{product.product?.ProductName}}</td>
                   <td>{{product.product?.ProductPrice}}</td>
                   <td>
-                    {{product.Quantity}} 
+                    {{product.Quantity}}
                   </td>
                   <td>{{product.totalPrice | currency:'EGP'}}</td>
                 </tr>
@@ -86,8 +86,8 @@
                   <td colspan="100"></td>
                 </tr>
               </ng-container>
-              
-           
+
+
             </tbody>
           </table>
           <div class="card  border-start-0 border-end-0 rounded-0">
